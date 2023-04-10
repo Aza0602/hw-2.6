@@ -6,6 +6,7 @@ public class Main {
         task1(nums);
         task2(nums);
         task3(List.of("Hi", "Fi", "hi", "Ri", "fi", "Fi"));
+        task4(List.of("Hi", "Fi", "hi", "Ri", "fi", "Fi"));
     }
 
     private static void task1(List<Integer> numbers) {
@@ -35,6 +36,21 @@ public class Main {
             if (Collections.frequency(words, word) == 1) {
                 System.out.print(word + " ");
             }
+        }
+        System.out.println();
+    }
+
+    private static void task4(List<String> words) {
+        System.out.println("Задание 4");
+        Map<String, Integer> map = new TreeMap<>();
+        for (String word: words) {
+            if (!map.containsKey(word)) {
+                map.put(word, 0);
+            }
+            map.replace(word, map.get(word) + 1);
+        }
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
         }
         System.out.println();
     }
